@@ -1,0 +1,111 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Warning" -1 7 1 
+{CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 2 2 2 2 2 1 1 1 3 1 }1 1 0 
+0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Error" -1 8 1 {CSTYLE "" -1 -1 "Courie
+r" 1 10 255 0 255 1 2 2 2 2 2 1 1 1 3 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }
+{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 
+2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Outpu
+t" -1 12 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }
+1 3 0 0 0 0 1 0 1 0 2 2 0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "with(linalg):" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 25 "interface(warnlevel = 1):" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 1429 "MSol:=proc(lam,retval)\nalpha:=al;\nlam:=
+0;\nmeq1:=-q^8+(lam+4*alpha^2+lam*Pr)*q^6+(-2*lam*alpha^2-3*alpha^4+(l
+am+3*alpha^2)*(-alpha^2-lam*Pr))*q^4+(-Ra*alpha^2+lam*alpha^4+alpha^6+
+(-2*lam*alpha^2-3*alpha^4)*(-alpha^2-lam*Pr))*q^2+(lam*alpha^4+alpha^6
+)*(-alpha^2-lam*Pr)+Ra*alpha^4-alpha^4*mu:\n#print(eval(meq1)):\nsol1:
+=solve(eval(meq1),q);\n#print(sol1);\nfor i from 1 to 8 do\n P1[i]:=so
+l1[i];\nend do;\n#P1[1]:=a+b*I;P1[2]:=a-b*I;P1[3]:=-a+b*I;P1[4]:=-a-b*
+I;P1[5]:=a+b*I;\n#P1[6]:=a+b*I;P1[7]:=a+b*I; P1[8]:=a+b*I;\n\n#print(p
+1)\nN:=8:\ntheta1:=sum(K1[n]*exp(P1[n]*z),n=1..N):\npsi1:=diff(theta1,
+z,z)-alpha^2*theta1-lam*Pr*theta1:\nphi1:=-sum(K1[n]*P1[n]*exp(P1[n]*z
+)/(P1[n]^2-alpha^2),n=1..N):\n#print(simplify((diff(phi1,z$2)-alpha^2*
+phi1+diff(theta1,z))));\n#print(p1)\nkr1:=factor(eval(psi1,z=0)):\nkr2
+1:=factor(eval(diff(psi1,z,z)-Ma*alpha^2*theta1,z=0)):\n#kr22:=factor(
+eval(-theta1,z=0)):\nkr3:=eval(phi1,z=0):\nkr4:=eval(diff(theta1,z)-Bi
+*theta1,z=0):\nkr5:=eval(psi1,z=1):\nkr6:=eval(diff(psi1,z),z=1):\nkr7
+:=eval(theta1,z=1):\n#isotermicheskaja tverdaja stenka\nkr8:=eval(diff
+(phi1,z)+theta1,z=1):\nmatr:=jacobian([kr1,kr21,kr3,kr4,kr5,kr6,kr7,kr
+8],[K1[1],K1[2],K1[3],K1[4],K1[5],K1[6],K1[7],K1[8]]):\n#matr1:=jacobi
+an([kr1,kr22,kr3,kr4,kr5,kr6,kr7,kr8],[K1[1],K1[2],K1[3],K1[4],K1[5],K
+1[6],K1[7],K1[8]]):\nur:=det(matr):\n#print(simplify(matr));\nMSol:=so
+lve(ur,Ma);\nif retval = 1 then\n  return Re(MSol);\nelse\n  return Im
+(MSol); \nend if:\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 94 "################################################################
+##############################" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "restart:with(linalg):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "#interface(warnlevel = 1):" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "F2:=proc(lam);" }}{PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 34 "  f:=p^4+p^3-p^2+p-lam; #lam:=1.9:" }}{PARA 
+0 "> " 0 "" {MPLTEXT 1 0 31 "X1:=fsolve(eval(f),p,complex);\n" }}
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 68 "Y:=C1*exp(X1[1]*x)+C2*exp(X1[2]*x)+
+C3*exp(X1[3]*x)+C4*exp(X1[4]*x):;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 
+168 "eq1:=evalf(subs(x=0,Y) ):;eq2:=evalf(subs(x=0,diff(Y,x)-2*diff(Y,
+x,x)) ):;eq3:=evalf(subs(x=1,Y-2*diff(Y,x,x)) ):;eq4:=evalf(subs(x=1,3
+*diff(Y,x,x,x)-2*diff(Y,x,x)) ):;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 
+319 "M1:=[coeff(eq1,C1),coeff(eq1,C2),coeff(eq1,C3),coeff(eq1,C4)]:;M2
+:=[coeff(eq2,C1),coeff(eq2,C2),coeff(eq2,C3),coeff(eq2,C4)]:M3:=[coeff
+(eq3,C1),coeff(eq3,C2),coeff(eq3,C3),coeff(eq4,C4)]:;M4:=[coeff(eq4,C1
+),coeff(eq4,C2),coeff(eq4,C3),coeff(eq4,C4)]:; m22:=Matrix(4,4,[M1,M2,
+M3,M4]); opr:=det(m22); return m22;end proc:" }}{PARA 7 "" 1 "" {TEXT 
+-1 60 "Warning, `f` is implicitly declared local to procedure `F2`\n" 
+}}{PARA 7 "" 1 "" {TEXT -1 61 "Warning, `X1` is implicitly declared lo
+cal to procedure `F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 60 "Warning, `Y` i
+s implicitly declared local to procedure `F2`\n" }}{PARA 7 "" 1 "" 
+{TEXT -1 62 "Warning, `eq1` is implicitly declared local to procedure \+
+`F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 62 "Warning, `eq2` is implicitly de
+clared local to procedure `F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 62 "Warni
+ng, `eq3` is implicitly declared local to procedure `F2`\n" }}{PARA 7 
+"" 1 "" {TEXT -1 62 "Warning, `eq4` is implicitly declared local to pr
+ocedure `F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 61 "Warning, `M1` is implic
+itly declared local to procedure `F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 
+61 "Warning, `M2` is implicitly declared local to procedure `F2`\n" }}
+{PARA 7 "" 1 "" {TEXT -1 61 "Warning, `M3` is implicitly declared loca
+l to procedure `F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 61 "Warning, `M4` is
+ implicitly declared local to procedure `F2`\n" }}{PARA 7 "" 1 "" 
+{TEXT -1 62 "Warning, `m22` is implicitly declared local to procedure \+
+`F2`\n" }}{PARA 7 "" 1 "" {TEXT -1 62 "Warning, `opr` is implicitly de
+clared local to procedure `F2`\n" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 8 "" 1 "" {TEXT -1 34 "Error, inva
+lid subscript selector\n" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 42 "M2:=F2(2); det(M2); M1:
+=F2(1.90); det(M1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#M2G-%'RTABLE
+G6%\")_Up`-%'MATRIXG6#7&7&$\"\"\"\"\"!^$F.$!\"!F0^$F.$F0F0F.7&$!#5F0^$
+$\"\"#F0$!\"\"F0^$F:F.F<7&$!+C)pMZ*F8^$$\"+=p!4i\"!\"*$!+aHTCDFE^$FC$
+\"+aHTCDFE$\"+G=G=FFE7&$!+i!H2L%FE^$$\"+mv,0OFE$!)_].iFE^$FQ$\")_].iFE
+FK%'MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#^$$\"\"!F%$\"++to&e)!\"
+)" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#M1G-%'RTABLEG6%\")cw<c-%'MATRI
+XG6#7&7&$\"\"\"\"\"!^$F.$!\"!F0^$F.$F0F0F.7&$!+L7jR**!\"*^$$\"+#3JX%>F
+9$!+^\\)Qk*!#5^$F;$\"+^\\)Qk*F?$!+H$4V\\*F?7&$!+GaAk%*F?^$$\"+!**p6l\"
+F9$!+veB]CF9^$FI$\"+veB]CF9$\"+@y!*\\CF97&$!+o0x>VF9^$$\"+c^+pMF9$\"+'
+)RyY<!#6^$FV$!+')RyY<FZFP%'MatrixG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+^$$\"\"!F%$\"+;%*y!)o!\")" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 
+"" }}}{EXCHG {PARA 12 "" 1 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 167 "#DD3 := .1040726638e-6+281.
+9307463*I; DD15 := -.5e-8-48.26884700*I; DD2 := .1732291625e-7+7.66466
+983*I; DD1.9 := -.8639541136e-8-7.47948174*I \354\345\346\344\363 1.9 \+
+i 2 est' koren'" }}}}{MARK "17 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 
+1 }{PAGENUMBERS 0 1 2 33 1 1 }{RTABLE_HANDLES 53694252 56177656 }
+{RTABLE 
+M7R0
+I5RTABLE_SAVE/53694252X,%)anythingG6"6"[gl!"%!!!#1"%"%$"""""!$!#5F)$!+C)pMZ*F+$
+!+i!H2L%!"*^$F'$!"!F)^$$""#F)$!""F)^$$"+=p!4i"F0$!+aHTCDF0^$$"+mv,0OF0$!)_].iF0
+^$F'$F)F)^$F5F'^$F:$"+aHTCDF0^$F?$")_].iF0F'F7$"+G=G=FF0FLF&
+}
+{RTABLE 
+M7R0
+I5RTABLE_SAVE/56177656X,%)anythingG6"6"[gl!"%!!!#1"%"%$"""""!$!+L7jR**!"*$!+GaA
+k%*!#5$!+o0x>VF,^$F'$!"!F)^$$"+#3JX%>F,$!+^\)Qk*F/^$$"+!**p6l"F,$!+veB]CF,^$$"+
+c^+pMF,$"+')RyY<!#6^$F'$F)F)^$F6$"+^\)Qk*F/^$F;$"+veB]CF,^$F@$!+')RyY<FDF'$!+H$
+4V\*F/$"+@y!*\CF,FRF&
+}
+
